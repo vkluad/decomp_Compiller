@@ -6,17 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/home/tush17/CLionProjects/decomp_Compiller/compiler.c
-compiler.h
-/home/tush17/CLionProjects/decomp_Compiller/compiler.h
-
-/home/tush17/CLionProjects/decomp_Compiller/compiler.h
+C:/Users/lados/CLionProjects/decomp_Compiller/compiler.h
 header.h
-/home/tush17/CLionProjects/decomp_Compiller/header.h
+C:/Users/lados/CLionProjects/decomp_Compiller/header.h
 
-/home/tush17/CLionProjects/decomp_Compiller/header.h
+C:/Users/lados/CLionProjects/decomp_Compiller/header.h
 stdio.h
 -
 string.h
 -
+
+C:/Users/lados/CLionProjects/decomp_Compiller/main.c
+compiler.h
+C:/Users/lados/CLionProjects/decomp_Compiller/compiler.h
+pre_reader.h
+C:/Users/lados/CLionProjects/decomp_Compiller/pre_reader.h
+
+C:/Users/lados/CLionProjects/decomp_Compiller/pre_reader.h
+header.h
+C:/Users/lados/CLionProjects/decomp_Compiller/header.h
 

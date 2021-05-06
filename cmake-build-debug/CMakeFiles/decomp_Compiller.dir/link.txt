@@ -1,1 +1,3 @@
-/usr/bin/cc -g CMakeFiles/decomp_Compiller.dir/main.c.o CMakeFiles/decomp_Compiller.dir/compiler.c.o CMakeFiles/decomp_Compiller.dir/pre_reader.c.o -o decomp_Compiller 
+"C:\Program Files\JetBrains\CLion 2021.1.1\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\decomp_Compiller.dir/objects.a
+C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\ar.exe cr CMakeFiles\decomp_Compiller.dir/objects.a @CMakeFiles\decomp_Compiller.dir\objects1.rsp
+C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\decomp_Compiller.dir/objects.a -Wl,--no-whole-archive -o decomp_Compiller.exe -Wl,--out-implib,libdecomp_Compiller.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\decomp_Compiller.dir\linklibs.rsp

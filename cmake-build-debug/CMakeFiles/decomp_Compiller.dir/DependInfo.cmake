@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/tush17/CLionProjects/decomp_Compiller/compiler.c" "/home/tush17/CLionProjects/decomp_Compiller/cmake-build-debug/CMakeFiles/decomp_Compiller.dir/compiler.c.o"
-  "/home/tush17/CLionProjects/decomp_Compiller/main.c" "/home/tush17/CLionProjects/decomp_Compiller/cmake-build-debug/CMakeFiles/decomp_Compiller.dir/main.c.o"
-  "/home/tush17/CLionProjects/decomp_Compiller/pre_reader.c" "/home/tush17/CLionProjects/decomp_Compiller/cmake-build-debug/CMakeFiles/decomp_Compiller.dir/pre_reader.c.o"
+  "C:/Users/lados/CLionProjects/decomp_Compiller/compiler.c" "C:/Users/lados/CLionProjects/decomp_Compiller/cmake-build-debug/CMakeFiles/decomp_Compiller.dir/compiler.c.obj"
+  "C:/Users/lados/CLionProjects/decomp_Compiller/main.c" "C:/Users/lados/CLionProjects/decomp_Compiller/cmake-build-debug/CMakeFiles/decomp_Compiller.dir/main.c.obj"
+  "C:/Users/lados/CLionProjects/decomp_Compiller/pre_reader.c" "C:/Users/lados/CLionProjects/decomp_Compiller/cmake-build-debug/CMakeFiles/decomp_Compiller.dir/pre_reader.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
