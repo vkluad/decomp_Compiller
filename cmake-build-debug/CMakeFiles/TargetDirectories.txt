@@ -1,3 +1,0 @@
-/home/tush17/CLionProjects/decomp_Compiller/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/tush17/CLionProjects/decomp_Compiller/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/tush17/CLionProjects/decomp_Compiller/cmake-build-debug/CMakeFiles/decomp_Compiller.dir
