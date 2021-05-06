@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tush17/CLionProjects/decomp_Compiller/compiler.c
+compiler.h
+/home/tush17/CLionProjects/decomp_Compiller/compiler.h
+
+/home/tush17/CLionProjects/decomp_Compiller/compiler.h
+header.h
+/home/tush17/CLionProjects/decomp_Compiller/header.h
+
+/home/tush17/CLionProjects/decomp_Compiller/header.h
+stdio.h
+-
+string.h
+-
+

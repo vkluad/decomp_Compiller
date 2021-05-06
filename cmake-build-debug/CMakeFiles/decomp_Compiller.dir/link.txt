@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/decomp_Compiller.dir/main.c.o CMakeFiles/decomp_Compiller.dir/compiler.c.o CMakeFiles/decomp_Compiller.dir/pre_reader.c.o -o decomp_Compiller 
