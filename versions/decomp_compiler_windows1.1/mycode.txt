@@ -1,0 +1,16 @@
+#A 20d
+#B 21d
+#C 22d
+#ONE 23d
+#K 24d
+
+LOAD #B
+RCR
+JNC 8d
+LOAD #C
+ADD #A
+STORE #C
+LOAD #K
+SUB #ONE
+JNZ 0d
+HALT
