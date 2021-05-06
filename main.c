@@ -6,7 +6,6 @@ int main(int argc, char *argv[]) {
     char filename[FILENAME_SIZE] = "";
     char new_filename[FILENAME_SIZE] = "";
     if(argc<2){
-
         printf("Please enter the file name(q - quit):\n");
         scanf("%s",filename);
         if(strcmp(filename,"q")==0)
