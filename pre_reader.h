@@ -7,6 +7,6 @@
 
 #include "header.h"
 
-void pre_reader(const char* filename);
+int pre_reader(const char* filename);
 
 #endif //DECOMP_COMPILLER_PRE_READER_H

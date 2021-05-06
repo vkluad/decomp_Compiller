@@ -5,19 +5,21 @@
 int main(int argc, char *argv[]) {
     char filename[FILENAME_SIZE] = "";
     char new_filename[FILENAME_SIZE] = "";
-    if(argc<2){
+
+    if(argc<2) {
         printf("Please enter the file name(q - quit):\n");
-        scanf("%s",filename);
-        if(strcmp(filename,"q")==0)
+        scanf("%s", filename);
+        if (strcmp(filename, "q") == 0)
             return 0;
-        pre_reader(filename);
-        strncpy(new_filename,filename, strlen(filename));
-        strcat(new_filename,"_pre_comp");
-        compiler(new_filename);
+    }else{
+        strcpy(filename,argv[1]);
     }
-    pre_reader(argv[1]);
-    strncpy(new_filename,argv[1], strlen(argv[1]));
-    strcat(new_filename,"_pre_comp");
-    compiler(new_filename);
+    if(pre_reader(filename)==0) {
+        strncpy(new_filename, filename, strlen(filename));
+        strcat(new_filename, "_pre_comp");
+        compiler(new_filename);
+    }else{
+        return 1;
+    }
     return 0;
 }
