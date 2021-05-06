@@ -11,11 +11,8 @@ int pre_reader(const char* filename){
     char line[STR] = "";
     char var[128][2][64];
     int var_count = 0;
-
     FILE *file_in = fopen(filename,"r");
-
     if(file_in == NULL){
-
         printf("You filename is incorrect\nprogram will be closed\n");
         fclose(file_in);
         return 1;
