@@ -1,3 +1,0 @@
-C:/Users/lados/CLionProjects/decomp_Compiller/cmake-build-debug/CMakeFiles/decomp_Compiller.dir
-C:/Users/lados/CLionProjects/decomp_Compiller/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/lados/CLionProjects/decomp_Compiller/cmake-build-debug/CMakeFiles/rebuild_cache.dir
