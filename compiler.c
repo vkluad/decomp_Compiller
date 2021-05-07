@@ -38,7 +38,7 @@ void load_to_decomp(const char *filename){
     FILE *file_in = fopen(new_filename,"r");
     if(file_in!=NULL){
         while(fgets(line,STR_DE,file_in)!=NULL){
-            fprintf(decomp_prg,"%s %s", bin_create(i),line);
+            fprintf(decomp_prg,"%s  %s", bin_create(i),line);
             i++;
         }
     }
@@ -75,12 +75,15 @@ void load_to_file(const char *filename,char* new_line){
 char * find_command(char *instr){
     FILE *file_decode = fopen("./data/decomp.lib","r");
     char line[STR_DE] = "";
+    char *command_b;
+    command_b = (char*)calloc(STR_DE,sizeof(char));
     if(file_decode!=NULL) {
         while (feof(file_decode) == 0) {
             fgets(line, STR_DE, file_decode);
             if (memcmp(instr, line, strlen(instr)) == 0) {
                 strtok(line, ":\n");
-                return strtok(NULL, ":\n");
+                strcpy(command_b,strtok(NULL, ":\n"));
+                return command_b;
             }
         }
     }else{
@@ -92,6 +95,9 @@ char * find_command(char *instr){
 char *num_to_bin(const char* num){
     FILE *file_decode = fopen("./data/decomp.num_lib","r");
     char line[STR_DE] = "";
+    char *num_b;
+    num_b = (char*)calloc(STR_DE,sizeof(char));
+
     if(file_decode!=NULL) {
         while (feof(file_decode) == 0) {
             fgets(line, STR_DE, file_decode);
@@ -99,7 +105,8 @@ char *num_to_bin(const char* num){
             char *temp2 = strtok(NULL, ":\n");
             if ((temp1 != NULL) && (temp2 != NULL)) {
                 if ((strcmp(num, temp1) == 0) || (strcmp(num, temp2) == 0)) {
-                    return strtok(NULL, ":\n");;
+                    strcpy(num_b,strtok(NULL, ":\n"));
+                    return num_b;
                 }
             }
         }
@@ -112,7 +119,7 @@ char *num_to_bin(const char* num){
 void compiler(const char * filename){
     FILE *file_in = fopen(filename,"r");
     char line[STR] = "";
-    char new_line[17] = "";
+    char new_line[STR_DE] = "";
     while(feof(file_in)==0) {
         if(fgets(line, STR, file_in)!=NULL) {
             if(line[0]!='\n') {
