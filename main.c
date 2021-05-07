@@ -18,6 +18,7 @@ int main(int argc, char *argv[]) {
         strncpy(new_filename, filename, strlen(filename));
         strcat(new_filename, "_pre_comp");
         compiler(new_filename);
+        load_to_decomp(filename);
     }else{
         return 1;
     }

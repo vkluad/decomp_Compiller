@@ -6,11 +6,15 @@
 #define DECOMP_COMPILLER_COMPILER_H
 
 #include "header.h"
+char *num_to_bin(const char* num);
+
+void load_to_decomp(const char *filename);
+
 void load_to_file(const char *filename,char* new_line);
 
-char * find_command(char *instr);
+char *find_command(char *instr);
 
-char *num_to_bin(const char* num);
+
 
 void compiler(const char * filename);
 

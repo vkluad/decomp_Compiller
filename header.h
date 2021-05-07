@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <malloc.h>
 
 #define STR 128
 #define STR_DE 32

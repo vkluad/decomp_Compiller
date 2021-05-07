@@ -3,6 +3,48 @@
 //
 #include "compiler.h"
 
+char* bin_create(int num) {
+    char *adr;
+    adr = (char*)calloc(15,sizeof(char));
+    for(int i = 14;i>=0;i--){
+        if(i%5==0){
+            adr[i] = ' ';
+        }else {
+            if (num != 0) {
+                if (num % 2) {
+                    adr[i] = '1';
+                    num = num >> 1;
+                } else {
+                    adr[i] = '0';
+                    num = num >> 1;
+                }
+            } else {
+                adr[i] = '0';
+            }
+        }
+    }
+    return adr;
+}
+
+void load_to_decomp(const char *filename){
+    char temp[FILENAME_SIZE] = "";
+    strcpy(temp, filename);
+    strcpy(temp, strtok(temp,"."));
+    strcat(temp,".comp");
+    char line[STR_DE];
+    int i = 0;
+    FILE *decomp_prg = fopen("DeComp.prg","w");
+    FILE *file_in = fopen(temp,"r");
+    if(file_in!=NULL){
+        while(fgets(line,STR_DE,file_in)!=NULL){
+            fprintf(decomp_prg,"%s  %s", bin_create(i),line);
+            i++;
+        }
+    }
+    fclose(file_in);
+    fclose(decomp_prg);
+}
+
 void load_to_file(const char *filename,char* new_line){
     char temp[FILENAME_SIZE] = "";
     strcpy(temp, filename);
