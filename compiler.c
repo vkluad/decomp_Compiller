@@ -28,13 +28,14 @@ char* bin_create(int num) {
 
 void load_to_decomp(const char *filename){
     char temp[FILENAME_SIZE] = "";
+    char new_filename[FILENAME_SIZE] = "";
     strcpy(temp, filename);
-    strcpy(temp, strtok(temp,"."));
-    strcat(temp,".comp");
+    strcpy(new_filename, strtok(temp,"."));
+    strcat(new_filename,".comp");
     char line[STR_DE];
     int i = 0;
     FILE *decomp_prg = fopen("DeComp.prg","w");
-    FILE *file_in = fopen(temp,"r");
+    FILE *file_in = fopen(new_filename,"r");
     if(file_in!=NULL){
         while(fgets(line,STR_DE,file_in)!=NULL){
             fprintf(decomp_prg,"%s  %s", bin_create(i),line);
@@ -47,16 +48,17 @@ void load_to_decomp(const char *filename){
 
 void load_to_file(const char *filename,char* new_line){
     char temp[FILENAME_SIZE] = "";
+    char new_filename[FILENAME_SIZE] = "";
     strcpy(temp, filename);
-    strcpy(temp, strtok(temp,"."));
-    strcat(temp,".comp");
+    strcpy(new_filename, strtok(temp,".\000\n"));
+    strcat(new_filename,".comp");
     static _Bool delete_file = 0;
     FILE *file_comp;
     if(delete_file==0){
-        file_comp = fopen(temp,"w");
+        file_comp = fopen(new_filename,"w");
         delete_file = 1;
     }else {
-        file_comp = fopen(temp, "a+");
+        file_comp = fopen(new_filename, "a+");
     }
     for(int i = 0;i<strlen(new_line);i++) {
         if((i+1)%4==0) {
@@ -73,12 +75,15 @@ void load_to_file(const char *filename,char* new_line){
 char * find_command(char *instr){
     FILE *file_decode = fopen("./data/decomp.lib","r");
     char line[STR_DE] = "";
+    char *temp;
+    temp = (char*)calloc(16,sizeof(char));
     if(file_decode!=NULL) {
         while (feof(file_decode) == 0) {
             fgets(line, STR_DE, file_decode);
             if (memcmp(instr, line, strlen(instr)) == 0) {
                 strtok(line, ":\n");
-                return strtok(NULL, ":\n");
+                strcpy(temp,strtok(NULL, ":\n"));
+                return temp;
             }
         }
     }else{
@@ -89,6 +94,8 @@ char * find_command(char *instr){
 
 char *num_to_bin(const char* num){
     FILE *file_decode = fopen("./data/decomp.num_lib","r");
+    char *temp;
+    temp = (char*)calloc(16,sizeof(char));
     char line[STR_DE] = "";
     if(file_decode!=NULL) {
         while (feof(file_decode) == 0) {
@@ -97,7 +104,8 @@ char *num_to_bin(const char* num){
             char *temp2 = strtok(NULL, ":\n");
             if ((temp1 != NULL) && (temp2 != NULL)) {
                 if ((strcmp(num, temp1) == 0) || (strcmp(num, temp2) == 0)) {
-                    return strtok(NULL, ":\n");
+                    strcpy(temp, strtok(NULL, ":\n"));
+                    return temp;
                 }
             }
         }
@@ -131,4 +139,3 @@ void compiler(const char * filename){
     }
     fclose(file_in);
 }
-
