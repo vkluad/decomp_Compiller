@@ -73,11 +73,13 @@ void load_to_file(const char *filename,char* new_line){
 char * find_command(char *instr){
     FILE *file_decode = fopen("./data/decomp.lib","r");
     char line[STR_DE] = "";
-    while(feof(file_decode)==0) {
-        fgets(line, STR_DE, file_decode);
-        if (memcmp(instr, line, strlen(instr)) == 0) {
-            strtok(line,":\n");
-            return strtok(NULL,":\n");
+    if(file_decode!=NULL) {
+        while (feof(file_decode) == 0) {
+            fgets(line, STR_DE, file_decode);
+            if (memcmp(instr, line, strlen(instr)) == 0) {
+                strtok(line, ":\n");
+                return strtok(NULL, ":\n");
+            }
         }
     }
     return "";
@@ -86,13 +88,15 @@ char * find_command(char *instr){
 char *num_to_bin(const char* num){
     FILE *file_decode = fopen("./data/decomp.num_lib","r");
     char line[STR_DE] = "";
-    while(feof(file_decode)==0) {
-        fgets(line, STR_DE, file_decode);
-        char *temp1 = strtok(line,":\n");
-        char *temp2 = strtok(NULL,":\n");
-        if((temp1!=NULL)&&(temp2!=NULL)) {
-            if ((strcmp(num, temp1) == 0) || (strcmp(num, temp2) == 0)) {
-                return strtok(NULL, ":\n");
+    if(file_decode!=NULL) {
+        while (feof(file_decode) == 0) {
+            fgets(line, STR_DE, file_decode);
+            char *temp1 = strtok(line, ":\n");
+            char *temp2 = strtok(NULL, ":\n");
+            if ((temp1 != NULL) && (temp2 != NULL)) {
+                if ((strcmp(num, temp1) == 0) || (strcmp(num, temp2) == 0)) {
+                    return strtok(NULL, ":\n");
+                }
             }
         }
     }
