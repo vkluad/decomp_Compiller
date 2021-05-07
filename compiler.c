@@ -38,7 +38,7 @@ void load_to_decomp(const char *filename){
     FILE *file_in = fopen(new_filename,"r");
     if(file_in!=NULL){
         while(fgets(line,STR_DE,file_in)!=NULL){
-            fprintf(decomp_prg,"%s  %s", bin_create(i),line);
+            fprintf(decomp_prg,"%s %s", bin_create(i),line);
             i++;
         }
     }
@@ -61,9 +61,9 @@ void load_to_file(const char *filename,char* new_line){
         file_comp = fopen(new_filename, "a+");
     }
     for(int i = 0;i<strlen(new_line);i++) {
-        if((i+1)%4==0) {
-            fputc(new_line[i], file_comp);
+        if(i%4==0) {
             fputc(' ',file_comp);
+            fputc(new_line[i], file_comp);
         }else{
             fputc(new_line[i], file_comp);
         }
