@@ -81,6 +81,8 @@ char * find_command(char *instr){
                 return strtok(NULL, ":\n");
             }
         }
+    }else{
+        printf("Program file decomp.lib is not available");
     }
     return "";
 }
@@ -99,6 +101,8 @@ char *num_to_bin(const char* num){
                 }
             }
         }
+    }else{
+        printf("Program file decomp.num_lib is not available");
     }
     return "";
 }
