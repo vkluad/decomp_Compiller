@@ -6,7 +6,9 @@
 #define DECOMP_COMPILLER_COMPILER_H
 
 #include "header.h"
-char *num_to_bin(const char* num);
+#include "num_conv.h"
+
+//char *num_to_bin(const char* num);
 
 void load_to_decomp(const char *filename);
 

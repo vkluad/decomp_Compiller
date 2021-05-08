@@ -3,29 +3,6 @@
 //
 #include "compiler.h"
 
-char* bin_create(int num) {
-    char *adr;
-    adr = (char*)calloc(15,sizeof(char));
-    for(int i = 14;i>=0;i--){
-        if(i%5==0){
-            adr[i] = ' ';
-        }else {
-            if (num != 0) {
-                if (num % 2) {
-                    adr[i] = '1';
-                    num = num >> 1;
-                } else {
-                    adr[i] = '0';
-                    num = num >> 1;
-                }
-            } else {
-                adr[i] = '0';
-            }
-        }
-    }
-    return adr;
-}
-
 void load_to_decomp(const char *filename){
     char temp[FILENAME_SIZE] = "";
     char new_filename[FILENAME_SIZE] = "";
@@ -92,35 +69,6 @@ char * find_command(char *instr){
     return "";
 }
 
-char *num_to_bin(const char* num){
-    FILE *file_decode = fopen("./data/decomp.num_lib","r");
-    char line[STR_DE] = "";
-    char *num_b;
-    num_b = (char*)calloc(STR_DE,sizeof(char));
-
-    if(file_decode!=NULL) {
-        while (feof(file_decode) == 0) {
-            fgets(line, STR_DE, file_decode);
-            char *temp1 = strtok(line, ":\n");
-            char *temp2 = strtok(NULL, ":\n");
-            if ((temp1 != NULL) && (temp2 != NULL)) {
-                if ((strcmp(num, temp1) == 0) || (strcmp(num, temp2) == 0)) {
-                    strcpy(num_b,strtok(NULL, ":\n"));
-                    return num_b;
-                }
-            }
-        }
-    }else{
-        printf("Program file decomp.num_lib is not available");
-    }
-    return "";
-
-
-}
-
-
-
-
 
 void compiler(const char * filename){
     FILE *file_in = fopen(filename,"r");
@@ -135,11 +83,11 @@ void compiler(const char * filename){
                 if ((strlen(new_line) != 16) && (s_adr != NULL) && !(strcmp(new_line,"")==0)) {
                     printf("%s ", instr);
                     printf("%s\n", s_adr);
-                    strcat(new_line, num_to_bin(s_adr));
+                    strcat(new_line, num_to_bin12(s_adr));
                 } else {
 //                    printf("")
-
                     printf("%s\n", instr);
+                    strcpy(new_line, num_to_bin16(instr));
                 }
                 printf("%s\n\n", new_line);
                 load_to_file(filename, new_line);
