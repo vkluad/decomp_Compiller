@@ -6,6 +6,7 @@
 #define DECOMP_COMPILLER_PRE_READER_H
 
 #include "header.h"
+#include "num_conv.h"
 
 int pre_reader(const char* filename);
 

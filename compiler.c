@@ -114,7 +114,13 @@ char *num_to_bin(const char* num){
         printf("Program file decomp.num_lib is not available");
     }
     return "";
+
+
 }
+
+
+
+
 
 void compiler(const char * filename){
     FILE *file_in = fopen(filename,"r");
@@ -126,11 +132,13 @@ void compiler(const char * filename){
                 char *instr = strtok(line, " \n\000");
                 char *s_adr = strtok(NULL, " \n\000");
                 strcpy(new_line, find_command(instr));
-                if ((strlen(new_line) != 16) && (s_adr != NULL)) {
+                if ((strlen(new_line) != 16) && (s_adr != NULL) && !(strcmp(new_line,"")==0)) {
                     printf("%s ", instr);
                     printf("%s\n", s_adr);
                     strcat(new_line, num_to_bin(s_adr));
                 } else {
+//                    printf("")
+
                     printf("%s\n", instr);
                 }
                 printf("%s\n\n", new_line);
