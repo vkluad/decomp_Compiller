@@ -2,8 +2,8 @@
 // Created by tush17 on 5/6/21.
 //
 
-#ifndef DECOMP_COMPILLER_COMPILER_H
-#define DECOMP_COMPILLER_COMPILER_H
+#ifndef DECOMP_COMPILER_COMPILER_H
+#define DECOMP_COMPILER_COMPILER_H
 
 #include "header.h"
 #include "num_conv.h"
@@ -22,4 +22,4 @@ void compiler(const char * filename);
 
 
 
-#endif //DECOMP_COMPILLER_COMPILER_H
+#endif //DECOMP_COMPILER_COMPILER_H

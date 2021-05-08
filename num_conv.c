@@ -188,7 +188,7 @@ char* move_p_to_bin(char *char_move_p) {
             i_order += 1;
             continue;
         } else {
-            if ((fabs(num_double)< 1)&& !((int)fabs((num_double*2)) >= 1)) {
+            if ((fabs(num_double)< 1) && (int) fabs((num_double * 2)) < 1) {
                 num_double *= 0x2;
                 i_order -= 1;
                 continue;
