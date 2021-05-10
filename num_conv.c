@@ -75,8 +75,8 @@ double char_to_double(char* char_float){
         sign = 0;
         char_float = char_float+1;
     }
-    char *integer = strtok(char_float,",\n\000");
-    char *frac = strtok(NULL,",\n\000");
+    char *integer = strtok(char_float,".\n\000");
+    char *frac = strtok(NULL,".\n\000");
     for(int i = 1; i<(int)strlen(integer); i++){
         switch(integer[i-1]){
             case '0': num+=0; break;
@@ -144,12 +144,14 @@ char* fix_p_to_bin(char *char_fix_p){
     int integer = (int)(num_double*0x10);
     char *number = (char*)calloc(17,sizeof(char));
 
-    if(integer<0){
-        number[0] = '1';
-        number[1] = '1';
+    if(num_double<0){
+        strcat(number,"11");
+//        number[0] = '1';
+//        number[1] = '1';
     }else{
-        number[0] = '0';
-        number[1] = '0';
+        strcat(number,"00");
+//        number[0] = '0';
+//        number[1] = '0';
     }
     for(int i = 15;i>=2;i--){
         if(integer!=0) {
@@ -276,7 +278,7 @@ char* num_to_bin16(char *num){
     if(num[strlen(num)-1]=='m'){
         return move_p_to_bin(strtok(num,"m"));
     }
-    if(strchr(num,',')!=NULL){
+    if(strchr(num,'.')!=NULL){
         return fix_p_to_bin(num);
     }
     return integer_to_bin16(num);
