@@ -193,7 +193,7 @@ char* move_p_to_bin(char *char_move_p) {
             }
         }
     }
-    if(i_order>0){
+    if(i_order>=0){
         strcat(number,"00");
     }else{
         strcat(number,"11");
