@@ -10,7 +10,7 @@ int char_to_num_dec(char* char_num){
         sign = 0;
         char_num = char_num+1;
     }
-    for(int i = 1; i<(int)strlen(char_num); i++){
+    for(int i = 1; i<=(int)strlen(char_num); i++){
         switch(char_num[i-1]){
             case '0': num+=0; break;
             case '1': num+=1* (int)pow(10,(double)strlen(char_num)-i);break;
@@ -146,12 +146,8 @@ char* fix_p_to_bin(char *char_fix_p){
 
     if(num_double<0){
         strcat(number,"11");
-//        number[0] = '1';
-//        number[1] = '1';
     }else{
         strcat(number,"00");
-//        number[0] = '0';
-//        number[1] = '0';
     }
     for(int i = 15;i>=2;i--){
         if(integer!=0) {

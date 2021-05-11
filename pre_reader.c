@@ -49,17 +49,19 @@ int pre_reader(const char* filename){
                         fprintf(file_out, "%s\n", instr);
                         fprintf(file_out_u, "%s\n", instr);
                     }
+                    line_count++;
                 }
-                line_count++;
             }
         }
     }
 
     for(int i = 0; i < var_count;i++){
-        for(int j = 0;j < var_count;j++){
+        for(int j = i+1;j < var_count;j++){
             if(char_to_num(var[i][1]) > char_to_num(var[j][1])){
-                char *temp1 = var[i][1];
-                char *temp2 = var[i][2];
+                char temp1[32];
+                strcpy(temp1,var[i][1]);
+                char temp2[32];
+                strcpy(temp2,var[i][2]);
 
                 strcpy(var[i][1],var[j][1]);
                 strcpy(var[i][2],var[j][2]);
@@ -77,6 +79,7 @@ int pre_reader(const char* filename){
                 line_count++;
             }
             fprintf(file_out,"%s\n",var[i][2]);
+            line_count++;
         }
     }
 

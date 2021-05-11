@@ -75,19 +75,23 @@ void compiler(const char * filename){
     char line[STR] = "";
     char new_line[STR_DE] = "";
     while(feof(file_in)==0) {
+        strncpy(line,"\000",120);
+        strncpy(new_line,"\000",30);
         if(fgets(line, STR, file_in)!=NULL) {
             if(line[0]!='\n') {
                 char *instr = strtok(line, " \n\000");
                 char *s_adr = strtok(NULL, " \n\000");
                 strcpy(new_line, find_command(instr));
-                if ((strlen(new_line) != 16) && (s_adr != NULL) && strcmp(new_line,"")!=0) {
+                if ((strlen(new_line) < 16) && (s_adr != NULL) && strcmp(new_line,"")!=0) {
                     printf("%s ", instr);
                     printf("%s\n", s_adr);
                     strcat(new_line, num_to_bin12(s_adr));
                 } else {
 //                    printf("")
                     printf("%s\n", instr);
-                    strcpy(new_line, num_to_bin16(instr));
+                    if(strcmp(new_line,"")==0) {
+                        strcpy(new_line, num_to_bin16(instr));
+                    }
                 }
                 printf("%s\n\n", new_line);
                 load_to_file(filename, new_line);
