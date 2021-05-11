@@ -77,7 +77,7 @@ double char_to_double(char* char_float){
     }
     char *integer = strtok(char_float,".\n\000");
     char *frac = strtok(NULL,".\n\000");
-    for(int i = 1; i<(int)strlen(integer); i++){
+    for(int i = 1; i<=(int)strlen(integer); i++){
         switch(integer[i-1]){
             case '0': num+=0; break;
             case '1': num+=1* (int)pow(10,(double)strlen(integer)-i);break;
