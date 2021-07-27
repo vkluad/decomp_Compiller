@@ -8,6 +8,6 @@
 #include "header.h"
 #include "num_conv.h"
 
-int pre_reader(const char* filename);
+int pre_reader(const char *filename);
 
-#endif //DECOMP_COMPILER_PRE_READER_H
+#endif // DECOMP_COMPILER_PRE_READER_H

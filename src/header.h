@@ -5,12 +5,12 @@
 #ifndef DECOMP_COMPILER_HEADER_H
 #define DECOMP_COMPILER_HEADER_H
 
+#include <malloc.h>
 #include <stdio.h>
 #include <string.h>
-#include <malloc.h>
 
 #define STR 128
 #define STR_DE 32
 #define FILENAME_SIZE 64
 
-#endif //DECOMP_COMPILER_HEADER_H
+#endif // DECOMP_COMPILER_HEADER_H

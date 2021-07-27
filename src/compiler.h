@@ -8,18 +8,14 @@
 #include "header.h"
 #include "num_conv.h"
 
-//char *num_to_bin(const char* num);
+// char *num_to_bin(const char* num);
 
 void load_to_decomp(const char *filename);
 
-void load_to_file(const char *filename,char* new_line);
+void load_to_file(const char *filename, char *new_line);
 
 char *find_command(char *instr);
 
+void compiler(const char *filename);
 
-
-void compiler(const char * filename);
-
-
-
-#endif //DECOMP_COMPILER_COMPILER_H
+#endif // DECOMP_COMPILER_COMPILER_H
